@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Promise</title>
+</head>
+
+<body>
+<script src="./src/promise-class.js"></script>
+<script>
+// const p1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     // resolve(1)
+//     reject(2)
+//   })
+// })
+
+// p1.then(
+//   res => {
+//     console.log('onResolved1():', res);
+//     return res
+//   },
+//   reason => {
+//     console.log('onRejected1():', reason)
+//   }
+// )
+
+// p1.then(
+//   res => {
+//     console.log('onResolved2():', res);
+//     return res
+//   },
+//   reason => {
+//     console.log('onRejected2():', reason)
+//   }
+// )
+
+// const p2 = new Promise((resolve, reject) => {
+//   // setTimeout(() => {
+//   //   resolve(1)
+//   // })
+//   setTimeout(() => {
+//     reject(2)
+//   })
+// })
+
+// p2.then(
+//   value => {
+//     console.log('resolve -> p2', value);
+//     return value
+//   },
+//   reason => {
+//     console.log('reject -> p2:', reason);
+//     // return reason    
+//   }
+// ).then(
+//     value => {
+//       console.log('resolve -> p3:', value);      
+//     },
+//     reason => {
+//     console.log('reject -> p3:', reason);
+//   }
+// )
+
+// const p3 = new Promise((resolve, reject) => {
+//   reject(3)
+// })
+
+// p3.catch(reason => {
+//   console.log('reject -> p3:', reason);
+// }).then(
+//   value => {
+//     console.log('resolve -> p4:', value);
+//   },
+//   reason => {
+//     console.log('reject -> p5:', reason);
+//   }
+// )
+
+// const p4 = Promise.resolve(Promise.reject(3))
+// p4.then(value => {
+//   console.log('resolve -> p5:', value);
+// }).catch(reason => {
+//   console.log('reject -> p5:', reason);
+// })
+
+const p5 = Promise.resolve(5)
+const p6 = Promise.resolve(6)
+const p7 = Promise.resolve(7)
+const result = Promise.race([p5, p6, p7])
+result.then(res => {
+  console.log(res);
+}).catch(reason => {
+  console.log(reason);
+})
+</script>
+</body>
+</html>
